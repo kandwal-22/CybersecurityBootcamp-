@@ -7,13 +7,13 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the **yml and config** file may be used to install only certain pieces of it, such as Filebeat.
 
-  - [Hosts](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/hosts "Hosts File")
-* [Ansible Configuration](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/ansible.cfg "Ansible Configuration File")
-* [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/install-elk.yml "ELK Installation and VM Configuration file")
-* [Filebeat Config](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/filebeat_config.yml "Filebeat Configuration File")
-* [Filebeat Playbook](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/filebeat_playbook.yml "Filebeat Playbook")
-* [Metricbeat Config](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/metricbeat-config.yml "Metricbeat Configuration File")
-* [Metricbeat Playbook](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/metricbeat-playbook.yml "Metricbeat Playbook")
+* [Hosts](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/hosts "Hosts File")
+* [Ansible Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/ansible.config "Ansible Configuration File")
+* [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml "ELK Installation and VM Configuration file")
+* [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml "Filebeat Configuration File")
+* [Filebeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_playbook.yml "Filebeat Playbook")
+* [Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml "Metricbeat Configuration File")
+* [Metricbeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-playbook.yml "Metricbeat Playbook")
 
 This document contains the following details:
 - Description of the Topologu
@@ -156,17 +156,17 @@ This ELK server is configured to monitor the following machines:
 
 We have installed the following Beats on these machines:
 -- Filebeat
-  - [Filebeat Module Status Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_data_successful.PNG "Filebeat Data Successful")
+  - [Filebeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Filebeat_success.PNG "Filebeat Data Successful")
 
 - Metricbeat
-  - [Metricbeat Module Status Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_data_successful.PNG "Metricbeat Data Successful")
+  - [Metricbeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Metricbeat_success.PNG "Metricbeat Data Successful")
 
 These Beats allow us to collect the following information from each machine:
 - - Filebeat will be used to collect log files from very specific files such as Apache, Microsft Azure tools and web servers, MySQL databases.
     - [Filebeat Module Kibana Dashboard Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_System_Syslog_dashboard.PNG "Kibana Dashboard with Filebeat") 
 
   - Metericbeat will be used to monitor VM stats, per CPU core stats, per filesystem stats, memory stats and network stats.
-    -[Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Overview_ECS_dashboard.PNG "Kibana Dashboard with Metricbeat")
+    -[Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
       -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
 
 ### Using the Playbook
@@ -211,7 +211,7 @@ setup.kibana:
 # TODO: Change this to the IP address of your ELK server
 ```
 - Run the playbook using this command `ansible-playbook filebeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add log data > System logs (DEB) > 5:Module Status > Check Incoming data on Kibana to check that the installation worked as expected.
-  - [Filebeat Module Kibana Dashboard Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_System_Syslog_dashboard.PNG "Kibana Dashboard with Filebeat") 
+  - [Filebeat Module Kibana Dashboard Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/filebeat-img.PNG "Kibana Dashboard with Filebeat") 
 
 ### **_For Metricbeat_**
 - Download Metricbeat playbook using this command:
@@ -236,8 +236,10 @@ output.elasticsearch:
 
 ```
 - Run the playbook using this command `ansible-playbook metricbeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add Metric data > Docker Metrics (DEB) > 5:Module Status > Check data_on Kibana to check that the installation worked as expected.  
-    - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Overview_ECS_dashboard.PNG "Kibana Dashboard with Metricbeat")
+    - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
+    - 
       -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
+      
       -[Metricbeat Module Kibana - Metricbeat Docker Web-2 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-2_metrics.PNG "Metricbeat of Web-2")
      
 
@@ -255,3 +257,44 @@ output.elasticsearch:
 
 
 _As a **Bonus**, provide the specific commands the user will need to run to download the playbook, update the files, etc._
+
+|            COMMAND                               | PURPOSE                                               |
+|--------------------------------------------------|-------------------------------------------------------|                         
+|`ssh-keygen`                                      |  create a ssh key for setup VM's                      |
+|`sudo cat .ssh/id_rsa.pub`                        |  to view the ssh public key                           |
+|`ssh azureuser@Red-Team-Jumpbox IP address`       |  to log into the Jump-Box-Provisioner                 |
+| `sudo docker container list -a`                  | list all docker containers                            |
+| `sudo docker start dremy_elbakyan`               | start docker container dremy_elbakyan                 |
+|`sudo docker ps -a`                               |  list all active/inactive containers                  |
+|`sudo docker attach dremy_elbakyan`               |  effectively sshing into the dremy_elbakyan container |
+|`cd /etc/ansible`                                 | Change directory to the Ansible directory             |
+|`ls -laA`                                         | List all file in directory (including hidden)         |
+|`nano /etc/ansible/hosts`                         |  to edit the hosts file                               |
+|`nano /etc/ansible/ansible.cfg`                   |  to edit the ansible.cfg file                         |
+|`nano /etc/ansible/pentest.yml`                   |  to edit the My-Playbook                              |
+|`ansible-playbook [location][filename]`           |  to run the playbook                                  |
+|`ssh azureuse@Web-1 IP address`                   |  to log into the Web-1 VM                             |
+|`ssh azureuse@Web-2 IP address`                   |  to log into the Web-2 VM                             |
+|`ssh azureuse@ELKserver IP address`               |  to log into the ELKserver VM                         |
+|`exit`                                            | to exit out of docker containers/Jumpbox              |
+|`nano /etc/ansible/ansible.cfg`                   |  to edit the ansible.cfg file                         |
+|`nano /etc/ansible/hosts`                         |  to edit the hosts file                               |
+|`nano /etc/ansible/pentest.yml`                   |  to edit the My-Playbook                              |
+|`ansible-playbook [location][filename]`           |  to run the playbook                                  |
+|`sudo apt-get update` 				                     |  this will update all packages                        |
+|`sudo apt install docker.io`				               |  install docker application		                       |
+|`sudo service docker start`				               |  start the docker application                         |
+|`sudo systemctl status docker`				             |  status of the docker application                     |
+|`sudo systemctl start docker`                     |  start the docker service                             |
+|`sudo docker pull cyberxsecurity/ansible`	       |  pull the docker container file                       |
+|`sudo docker run -ti cyberxsecurity/ansible bash` |  run and create a docker container image              |
+|`ansible -m ping all`                             |  check the connection of ansible containers           |
+|`curl -L -O [location of the file on the web]`    |  to download a file from the web                      |
+|`dpkg -i [filename]`                              |  to install the file i.e. (filebeat & metricbeat)     |
+|`http://40.122.239.74:5601//app/kibana`           | Open web browser and navigate to Kibana Logs          |
+|`nano filebeat-config.yml`                        | create and edit filebeat config file                  |
+|`nano filebeat-playbook.yml`                      | write YAML file to install filebeat on webservers     |
+|`nano metricbeat-config.yml`                      | create metricbeat config file and edit it             |
+|`nano metricbeat-playbook.yml`                    | write YAML file to install metricbeat on webservers   |  
+------------------------------------------------------------------------------------------------------------
+

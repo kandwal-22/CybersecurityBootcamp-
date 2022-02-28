@@ -8,12 +8,12 @@ The files in this repository were used to configure the network depicted below.
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the **yml and config** file may be used to install only certain pieces of it, such as Filebeat.
 
 * [Hosts](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/hosts.txt "Hosts File")
-* [Ansible Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/ansible.config "Ansible Configuration File")
-* [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml "ELK Installation and VM Configuration file")
-* [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml "Filebeat Configuration File")
-* [Filebeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_playbook.yml "Filebeat Playbook")
-* [Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml "Metricbeat Configuration File")
-* [Metricbeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-playbook.yml "Metricbeat Playbook")
+* [Ansible Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/ansible.config.txt "Ansible Configuration File")
+* [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml.txt "ELK Installation and VM Configuration file")
+* [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml.txt "Filebeat Configuration File")
+* [Filebeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_playbook.yml.txt "Filebeat Playbook")
+* [Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml.txt "Metricbeat Configuration File")
+* [Metricbeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-playbook.yml.txt "Metricbeat Playbook")
 
 This document contains the following details:
 - Description of the Topologu
@@ -46,12 +46,12 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
 The configuration details of each machine may be found below.
 _Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
 
-| Name     | Function | IP Address | Operating System |
-|----------|----------|------------|------------------|
-| Jump Box | Gateway  | 10.0.0.4   | Linux            |
-| Web-1    | Server   | 10.0.0.5   | Linux            |
-| Web-2    | Server   | 10.0.0.6   | Linux            |
-|ELK-server| Monitor  | 10.1.0.4   | Linux            |
+| Name             | Function | IP Address | Operating System |
+|------------------|----------|------------|------------------|
+| Red-Team-JumpBox | Gateway  | 10.0.0.4   | Linux            |
+| Web-1            | Server   | 10.0.0.5   | Linux            |
+| Web-2            | Server   | 10.0.0.6   | Linux            |
+| ELK-server       | Monitor  | 10.1.0.4   | Linux            |
 
 ### Access Policies
 
@@ -69,12 +69,12 @@ Machines within the network can only be accessed by workstation and Red-Team-Jum
 
 A summary of the access policies in place can be found in the table below.
 
-| Name     | Publicly Accessible | Allowed IP Addresses |
-|----------|---------------------|----------------------|
-| Jump Box | Yes                 | 20.127.65.176        |
-| Web-1    | No                  | 10.0.0.5             |
-| Web-2    | No                  | 10.0.0.6             |
-|ELK-Server| No                  | 10.1.0.4             |
+| Name             | Publicly Accessible | Allowed IP Addresses |
+|------------------|---------------------|----------------------|
+| Red-Team-JumpBox | Yes                 | 20.127.65.176        |
+| Web-1            | No                  | 10.0.0.5             |
+| Web-2            | No                  | 10.0.0.6             |
+| ELK-Server       | No                  | 10.1.0.4             |
 
 
 ### Elk Configuration
@@ -158,17 +158,16 @@ We have installed the following Beats on these machines:
 -- Filebeat
   - [Filebeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Filebeat_success.PNG "Filebeat Data Successful")
 
-- Metricbeat
+-- Metricbeat
   - [Metricbeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Metricbeat_success.PNG "Metricbeat Data Successful")
 
 These Beats allow us to collect the following information from each machine:
 - - Filebeat will be used to collect log files from very specific files such as Apache, Microsft Azure tools and web servers, MySQL databases.
-    - [Filebeat Module Kibana Dashboard Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_System_Syslog_dashboard.PNG "Kibana Dashboard with Filebeat") 
+    - [Filebeat Module Kibana Dashboard Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/filebeat-img.PNG "Kibana Dashboard with Filebeat") 
 
   - Metericbeat will be used to monitor VM stats, per CPU core stats, per filesystem stats, memory stats and network stats.
     -[Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
-      -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
-
+     
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
 
@@ -189,7 +188,7 @@ SSH into the control node and follow the steps below:
 ### **_For Filebeat_**
 - Download Filebeat playbook usng this command:
 - - `curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml`
-- Copy the **_[Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml "Filebeat Configuration File")_** file to **_/etc/ansible_**
+- Copy the **_[Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml.txt "Filebeat Configuration File")_** file to **_/etc/ansible_**
 - Update the **_filebeat-config.yml_** file to include the **_ELK private IP 10.1.0.4_** as below from root@9ddf6fe7eb3f:~# `nano /etc/ansible/filebeat-config.yml`
 ```bash
 output.elasticsearch:
@@ -216,7 +215,7 @@ setup.kibana:
 ### **_For Metricbeat_**
 - Download Metricbeat playbook using this command:
   - `curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml`
-Copy the **_[Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml "Metricbeat Configuration File")_** file to **_/etc/ansible_**
+Copy the **_[Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml.txt "Metricbeat Configuration File")_** file to **_/etc/ansible_**
 - Update the **_metricbeat-config.yml_** file to include the **_ELK private IP 10.1.0.4_** as below from root@9ddf6fe7eb3f:~# `nano /etc/ansible/metricbeat-config.yml`
 ```bash
 #============================== Kibana =====================================

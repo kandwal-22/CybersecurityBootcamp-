@@ -147,7 +147,7 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![](Images/docker_ps_output.png)
+![](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/docker_ps_output.PNG)
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -155,13 +155,25 @@ This ELK server is configured to monitor the following machines:
 - _Web-2: 10.0.0.6_
 
 We have installed the following Beats on these machines:
-- _TODO: Specify which Beats you successfully installed_
+-- Filebeat
+  - [Filebeat Module Status Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_data_successful.PNG "Filebeat Data Successful")
+
+- Metricbeat
+  - [Metricbeat Module Status Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_data_successful.PNG "Metricbeat Data Successful")
 
 These Beats allow us to collect the following information from each machine:
-- _TODO: In 1-2 sentences, explain what kind of data each beat collects, and provide 1 example of what you expect to see. E.g., `Winlogbeat` collects Windows logs, which we use to track user logon events, etc._
+- - Filebeat will be used to collect log files from very specific files such as Apache, Microsft Azure tools and web servers, MySQL databases.
+    - [Filebeat Module Kibana Dashboard Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_System_Syslog_dashboard.PNG "Kibana Dashboard with Filebeat") 
+
+  - Metericbeat will be used to monitor VM stats, per CPU core stats, per filesystem stats, memory stats and network stats.
+    -[Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Overview_ECS_dashboard.PNG "Kibana Dashboard with Metricbeat")
+      -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
 
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
+
+- Verify the Public IP address to see if it has changed. [What Is My IP?](https://www.whatismyip.com/)
+- If changed then update the Security Rules that uses the My Public IPv4
 
 SSH into the control node and follow the steps below:
 - Copy the yml file to ansible folder.
@@ -170,13 +182,75 @@ SSH into the control node and follow the steps below:
 
 
 ### **_For ELK VM Configuration:_**
-- Copy the [ELK Installation and VM Configuration ](https://github.com/kandwal-22/cybersecurityBootcamp/Ansible/install-elk.yml) 
+- Copy the [ELK Installation and VM Configuration ](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml) 
 - Run the playbook using this command :  `ansible-playbook /etc/ansible/install-elk.yml` 
 
 
 ### **_For Filebeat_**
 - Download Filebeat playbook usng this command:
-- 
+- - `curl -L -O https://gist.githubusercontent.com/slape/5cc350109583af6cbe577bbcc0710c93/raw/eca603b72586fbe148c11f9c87bf96a63cb25760/Filebeat > /etc/ansible/filebeat-config.yml`
+- Copy the **_[Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml "Filebeat Configuration File")_** file to **_/etc/ansible_**
+- Update the **_filebeat-config.yml_** file to include the **_ELK private IP 10.1.0.4_** as below from root@9ddf6fe7eb3f:~# `nano /etc/ansible/filebeat-config.yml`
+```bash
+output.elasticsearch:
+  # Boolean flag to enable or disable the output module.
+  #enabled: true
+
+  # Array of hosts to connect to.
+  # Scheme and port can be left out and will be set to the default (http and 9200)
+  # In case you specify and additional path, the scheme is required: http://localhost:9200/path
+  # IPv6 addresses should always be defined as: https://[2001:db8::1]:9200
+  hosts: ["10.1.0.4:9200"]
+  username: "elastic"
+  password: "changeme" # TODO: Change this to the password you set
+
+# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+  host: "10.1.0.4:5601" 
+# TODO: Change this to the IP address of your ELK server
+```
+- Run the playbook using this command `ansible-playbook filebeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add log data > System logs (DEB) > 5:Module Status > Check Incoming data on Kibana to check that the installation worked as expected.
+  - [Filebeat Module Kibana Dashboard Screenshot](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Filebeat_System_Syslog_dashboard.PNG "Kibana Dashboard with Filebeat") 
+
+### **_For Metricbeat_**
+- Download Metricbeat playbook using this command:
+  - `curl -L -O https://gist.githubusercontent.com/slape/58541585cc1886d2e26cd8be557ce04c/raw/0ce2c7e744c54513616966affb5e9d96f5e12f73/metricbeat > /etc/ansible/files/metricbeat-config.yml`
+Copy the **_[Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml "Metricbeat Configuration File")_** file to **_/etc/ansible_**
+- Update the **_metricbeat-config.yml_** file to include the **_ELK private IP 10.1.0.4_** as below from root@9ddf6fe7eb3f:~# `nano /etc/ansible/metricbeat-config.yml`
+```bash
+#============================== Kibana =====================================
+
+# Starting with Beats version 6.0.0, the dashboards are loaded via the Kibana API.
+# This requires a Kibana endpoint configuration.
+setup.kibana:
+  host: "10.1.0.4:5601"
+  
+#-------------------------- Elasticsearch output ------------------------------
+output.elasticsearch:
+  # TODO: Change the hosts IP address to the IP address of your ELK server
+  # TODO: Change password from `changem` to the password you created
+  hosts: ["10.1.0.4:9200"]
+  username: "elastic"
+  password: "changeme"
+
+```
+- Run the playbook using this command `ansible-playbook metricbeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add Metric data > Docker Metrics (DEB) > 5:Module Status > Check data_on Kibana to check that the installation worked as expected.  
+    - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Overview_ECS_dashboard.PNG "Kibana Dashboard with Metricbeat")
+      -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
+      -[Metricbeat Module Kibana - Metricbeat Docker Web-2 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-2_metrics.PNG "Metricbeat of Web-2")
+     
+
+### Install Filebeat onto VM's
+1. Login to Kibana > Logs : Add log data > System logs > DEB > Getting started
+2. Copy: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb  
+   (Download the Filebeat to the VM) 
+
+### Install Metricbeat onto VM's
+1. Login to Kibana > Add Metric Data > Docker Metrics > DEB > Getting Started
+2. Copy: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb  
+   (Download the Metricbeat to the VM)   
+
 
 
 

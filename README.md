@@ -251,10 +251,7 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
 
 - Run the playbook using this command `ansible-playbook metricbeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add Metric data > Docker Metrics (DEB) > 5:Module Status > Check data_on Kibana to check that the installation worked as expected.  
     - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
-    - 
-      -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
-      
-      -[Metricbeat Module Kibana - Metricbeat Docker Web-2 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-2_metrics.PNG "Metricbeat of Web-2")
+     
      
 
 

@@ -1,19 +1,19 @@
-# CybersecurityBootcamp-
+# ELK-Stack-Project1
 ## Automated ELK Stack Deployment
 
 The files in this repository were used to configure the network depicted below.
 
-![](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Project-diag.PNG)
+![](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Project-diag.PNG)
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the **yml and config** file may be used to install only certain pieces of it, such as Filebeat.
 
-* [Hosts](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/hosts.txt "Hosts File")
-* [Ansible Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/ansible.config.txt "Ansible Configuration File")
-* [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml.txt "ELK Installation and VM Configuration file")
-* [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Filebeat-config.yml.txt "Filebeat Configuration File")
-* [Filebeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")
-* [Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Metricbeat-config.yml.txt "Metricbeat Configuration File")
-* [Metricbeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Metricbeat-playbook.yml.txt "Metricbeat Playbook")
+* [Hosts](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/hosts.txt "Hosts File")
+* [Ansible Configuration](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/ansible.config.txt "Ansible Configuration File")
+* [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/install-elk.yml.txt "ELK Installation and VM Configuration file")
+* [Filebeat Config](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-config.yml.txt "Filebeat Configuration File")
+* [Filebeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")
+* [Metricbeat Config](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-config.yml.txt "Metricbeat Configuration File")
+* [Metricbeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-playbook.yml.txt "Metricbeat Playbook")
 
 This document contains the following details:
 - Description of the Topologu
@@ -146,11 +146,11 @@ The playbook implements the following tasks:
 
 The following screenshot displays the result of running `docker ps` after successfully configuring the ELK instance.
 
-![](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/docker_ps_output.PNG)
+![](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/docker_ps_output.PNG)
 
 Then try to access web browser to http://<your.Elk-server .External.IP>:5601/app/kibana
 
-[Kibana Homepage](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Kibana-homepage.PNG  "Kibana Homepage")
+[Kibana Homepage](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/Kibana-homepage.PNG  "Kibana Homepage")
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
@@ -161,19 +161,19 @@ We have installed the following Beats on these machines:
 
 -- Filebeat --
 
-  - [Filebeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Filebeat_success.PNG "Filebeat Data Successful")
+  - [Filebeat Module Status Screenshot](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/Filebeat_success.PNG "Filebeat Data Successful")
 
 -- Metricbeat --
-  - [Metricbeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Metricbeat_success.PNG "Metricbeat Data Successful")
+  - [Metricbeat Module Status Screenshot](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/Metricbeat_success.PNG "Metricbeat Data Successful")
 
 
 
 These Beats allow us to collect the following information from each machine:
 - - Filebeat will be used to collect log files from very specific files such as Apache, Microsft Azure tools and web servers, MySQL databases.
-    - [Filebeat Module Kibana Dashboard Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/filebeat-img.PNG "Kibana Dashboard with Filebeat") 
+    - [Filebeat Module Kibana Dashboard Screenshot](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/filebeat-img.PNG "Kibana Dashboard with Filebeat") 
 
   - Metericbeat will be used to monitor VM stats, per CPU core stats, per filesystem stats, memory stats and network stats.
-    -[Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
+    -[Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
      
 ### Using the Playbook
 In order to use the playbook, you will need to have an Ansible control node already configured. Assuming you have such a control node provisioned: 
@@ -188,13 +188,13 @@ SSH into the control node and follow the steps below:
 
 
 ### **_For ELK VM Configuration:_**
-- Copy the [ELK Installation and VM Configuration ](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml) 
+- Copy the [ELK Installation and VM Configuration ](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/install-elk.yml) 
 - Run the playbook using this command :  `ansible-playbook /etc/ansible/install-elk.yml` 
 
 
 ### **_For Filebeat & Metricbeat_**
 
-We will create a [filebeat-config.yml](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Filebeat-config.yml.txt) and [metricbeat-config.yml](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Metricbeat-config.yml.txt) configuration files, after which we will create the Ansible playbook files for both of them.
+We will create a [filebeat-config.yml](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-config.yml.txt) and [metricbeat-config.yml](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-config.yml.txt) configuration files, after which we will create the Ansible playbook files for both of them.
 Once we have this file on our Ansible container, edit it as specified:
 - The username is elastic and the password is changeme.
 - Scroll to line #1106 and replace the IP address with the IP address of our ELK machine.
@@ -246,11 +246,11 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
 ```
 
 - Run the playbook using this command `ansible-playbook filebeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add log data > System logs (DEB) > 5:Module Status > Check Incoming data on Kibana to check that the installation worked as expected.
-  - [Filebeat Module Kibana Dashboard Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/filebeat-img.PNG "Kibana Dashboard with Filebeat") 
+  - [Filebeat Module Kibana Dashboard Screenshot](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/filebeat-img.PNG "Kibana Dashboard with Filebeat") 
 
 
 - Run the playbook using this command `ansible-playbook metricbeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add Metric data > Docker Metrics (DEB) > 5:Module Status > Check data_on Kibana to check that the installation worked as expected.  
-    - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
+    - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
     - 
       -[Metricbeat Module Kibana - Metricbeat Docker Web-1 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-1_metrics.PNG "Metricbeat of Web-1")
       

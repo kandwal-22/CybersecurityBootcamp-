@@ -49,8 +49,8 @@ The configuration details of each machine may be found below.
 | Name             | Function | IP Address | Operating System |
 |------------------|----------|------------|------------------|
 | Red-Team-JumpBox | Gateway  | 10.0.0.4   | Linux            |
-| Web-1            | Server   | 10.0.0.5   | Linux            |
-| Web-2            | Server   | 10.0.0.6   | Linux            |
+| Red-Team-Web-1   | Server   | 10.0.0.5   | Linux            |
+| Red-Team-Web-2   | Server   | 10.0.0.6   | Linux            |
 | ELK-server       | Kibana   | 10.1.0.4   | Linux            |
 
 ### Access Policies
@@ -72,8 +72,8 @@ A summary of the access policies in place can be found in the table below.
 | Name             | Publicly Accessible | Allowed IP Addresses |
 |------------------|---------------------|----------------------|
 | Red-Team-JumpBox | Yes                 | 20.127.65.176        |
-| Web-1            | No                  | 10.0.0.5             |
-| Web-2            | No                  | 10.0.0.6             |
+| Red-Team-Web-1   | No                  | 10.0.0.5             |
+| Red-Team-Web-2   | No                  | 10.0.0.6             |
 | ELK-Server       | No                  | 10.1.0.4             |
 
 
@@ -154,8 +154,8 @@ Then try to access web browser to http://<your.Elk-server .External.IP>:5601/app
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
-- _Web-1: 10.0.0.5_
-- _Web-2: 10.0.0.6_
+- _Red-Team-Web-1: 10.0.0.5_
+- _Red-Team-Web-2: 10.0.0.6_
 
 We have installed the following Beats on these machines:
 

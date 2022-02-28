@@ -79,12 +79,11 @@ A summary of the access policies in place can be found in the table below.
 
 ### Elk Configuration
 
-Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because...
-- _ What is the main advantage of automating configuration with Ansible?_
-    There are multiple advantages, Ansible lets you quickly and easily deploy multitier applications throug a YAML playbook.
-    
-     - _You don't need to write custom code to automate your systems._
-     - _Ansible will also figure out how to get your systems to the state you want them to be in. 
+Ansible was used to automate configuration of the ELK machine. No configuration was performed manually, which is advantageous because Ansible can be used to easily configure new machines, update programs, and configurations on hundreds of servers at once, and the best part is that the process is the same whether we're managing one machine or dozens and even hundreds.
+- What is the main advantage of automating configuration with Ansible?-
+   - There are multiple advantages, Ansible lets you quickly and easily deploy multiple applications throug a YAML playbook. -
+   - You don't need to write custom code to automate your systems.
+   - Ansible will also figure out how to get your systems to the state you want them to be in. 
 
 The playbook implements the following tasks:
 
@@ -155,10 +154,11 @@ This ELK server is configured to monitor the following machines:
 - _Web-2: 10.0.0.6_
 
 We have installed the following Beats on these machines:
--- Filebeat
+
+-- Filebeat --
   - [Filebeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Filebeat_success.PNG "Filebeat Data Successful")
 
--- Metricbeat
+-- Metricbeat --
   - [Metricbeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Metricbeat_success.PNG "Metricbeat Data Successful")
 
 These Beats allow us to collect the following information from each machine:

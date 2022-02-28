@@ -188,7 +188,7 @@ SSH into the control node and follow the steps below:
 
 
 ### **_For ELK VM Configuration:_**
-- Copy the [ELK Installation and VM Configuration ](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/install-elk.yml) 
+- Copy the [ELK Installation and VM Configuration ](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/install-elk.yml.txt) 
 - Run the playbook using this command :  `ansible-playbook /etc/ansible/install-elk.yml` 
 
 

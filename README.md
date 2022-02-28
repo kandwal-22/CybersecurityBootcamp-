@@ -149,7 +149,7 @@ The following screenshot displays the result of running `docker ps` after succes
 ![](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/docker_ps_output.PNG)
 
 Then try to access web browser to http://<your.Elk-server .External.IP>:5601/app/kibana
-![Kibana Homepage](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Kibana-homepage.PNG)
+![Kibana Homepage](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Kibana-homepage.PNG  "Kibana Homepage")
 
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:

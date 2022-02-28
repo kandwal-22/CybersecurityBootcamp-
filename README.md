@@ -10,8 +10,8 @@ These files have been tested and used to generate a live ELK deployment on Azure
 * [Hosts](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/hosts.txt "Hosts File")
 * [Ansible Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/ansible.config.txt "Ansible Configuration File")
 * [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml.txt "ELK Installation and VM Configuration file")
-* [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml.txt "Filebeat Configuration File")
-* [Filebeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_playbook.yml.txt "Filebeat Playbook")
+* [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Configuration File")
+* [Filebeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")
 * [Metricbeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-config.yml.txt "Metricbeat Configuration File")
 * [Metricbeat Playbook](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/metricbeat-playbook.yml.txt "Metricbeat Playbook")
 

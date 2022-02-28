@@ -256,15 +256,7 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
       -[Metricbeat Module Kibana - Metricbeat Docker Web-2 metrics](/Diagrams/Images/ELK_VM_Configuration_Screenshots/Metricbeat_Docker_Web-2_metrics.PNG "Metricbeat of Web-2")
      
 
-### Install Filebeat onto VM's
-1. Login to Kibana > Logs : Add log data > System logs > DEB > Getting started
-2. Copy: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.6.1-amd64.deb  
-   (Download the Filebeat to the VM) 
 
-### Install Metricbeat onto VM's
-1. Login to Kibana > Add Metric Data > Docker Metrics > DEB > Getting Started
-2. Copy: curl -L -O https://artifacts.elastic.co/downloads/beats/metricbeat/metricbeat-7.6.1-amd64.deb  
-   (Download the Metricbeat to the VM)   
 
 
 

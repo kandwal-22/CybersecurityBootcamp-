@@ -148,6 +148,9 @@ The following screenshot displays the result of running `docker ps` after succes
 
 ![](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/docker_ps_output.PNG)
 
+Then try to access web browser to http://<your.Elk-server .External.IP>:5601/app/kibana
+![Kibana Homepage](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Kibana-homepage.PNG)
+
 ### Target Machines & Beats
 This ELK server is configured to monitor the following machines:
 - _Web-1: 10.0.0.5_
@@ -156,10 +159,63 @@ This ELK server is configured to monitor the following machines:
 We have installed the following Beats on these machines:
 
 -- Filebeat --
+
   - [Filebeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Filebeat_success.PNG "Filebeat Data Successful")
 
 -- Metricbeat --
   - [Metricbeat Module Status Screenshot](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Diagrams/Images/Metricbeat_success.PNG "Metricbeat Data Successful")
+
+We will create a [filebeat-config.yml](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Filebeat-config.yml.txt) and [metricbeat-config.yml](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/Metricbeat-config.yml.txt) configuration files, after which we will create the Ansible playbook files for both of them.
+Once we have this file on our Ansible container, edit it as specified:
+- The username is elastic and the password is changeme.
+- Scroll to line #1106 and replace the IP address with the IP address of our ELK machine.
+output.elasticsearch:
+hosts: ["10.1.0.4:9200"]
+username: "elastic"
+password: "changeme"
+- Scroll to line #1806 and replace the IP address with the IP address of our ELK machine.
+	setup.kibana:
+host: "10.1.0.4:5601"
+- Save both files filebeat-config.yml and metricbeat-config.yml into `/etc/ansible/ '
+
+Next, create a new playbook that installs Filebeat & Metricbeat, and then create a playbook file, `filebeat-playbook.yml` & `metricbeat-playbook.yml`
+
+RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Filebeat playbook template below:
+
+```yaml
+---
+- name: Install and Launch Filebeat
+  hosts: webservers
+  become: yes
+  tasks:
+    # Use command module
+  - name: Download filebeat .deb file
+    command: curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.4.0-amd64.deb
+    # Use command module
+  - name: Install filebeat .deb
+    command: dpkg -i filebeat-7.4.0-amd64.deb
+    # Use copy module
+  - name: Drop in filebeat.yml
+    copy:
+      src: /etc/ansible/roles/install-filebeat/filebeat-config.yml
+      dest: /etc/filebeat/filebeat.yml
+    # Use command module
+  - name: Enable and Configure System Module
+    command: filebeat modules enable system
+    # Use command module
+  - name: Setup filebeat
+    command: filebeat setup
+    # Use command module
+  - name: Start filebeat service
+    command: service filebeat start
+    # Use systemd module
+  - name: Enable service filebeat on boot
+    systemd:
+      name: filebeat
+      enabled: yes
+
+```
+
 
 These Beats allow us to collect the following information from each machine:
 - - Filebeat will be used to collect log files from very specific files such as Apache, Microsft Azure tools and web servers, MySQL databases.

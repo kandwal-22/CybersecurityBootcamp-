@@ -254,8 +254,9 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
      
  _ Answer the following questions to fill in the blanks:_
 - _Which file is the playbook? Where do you copy it?_
-- For Filebeat create **_[Filebeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")_**
-  - For Metricbeat create **_[Metricbeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-playbook.yml.txt "Metricbeat Playbook")_** - _Where do you copy it?_
+  - For Filebeat create **_[Filebeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")_**
+  - For Metricbeat create **_[Metricbeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-playbook.yml.txt "Metricbeat Playbook")_** 
+  -  _Where do you copy it?_
   - **_/etc/ansible/_**  
 - _Which file do you update to make Ansible run the playbook on a specific machine?_
   - **_/etc/ansible/hosts file (IP of the Virtual Machines)._**  

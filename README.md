@@ -7,7 +7,7 @@ The files in this repository were used to configure the network depicted below.
 
 These files have been tested and used to generate a live ELK deployment on Azure. They can be used to either recreate the entire deployment pictured above. Alternatively, select portions of the **yml and config** file may be used to install only certain pieces of it, such as Filebeat.
 
-* [Hosts](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/hosts "Hosts File")
+* [Hosts](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/hosts.txt "Hosts File")
 * [Ansible Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/ansible.config "Ansible Configuration File")
 * [Ansible ELK Installation and VM Configuration](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/install-elk.yml "ELK Installation and VM Configuration file")
 * [Filebeat Config](https://github.com/kandwal-22/CybersecurityBootcamp-/blob/main/Ansible/filebeat_config.yml "Filebeat Configuration File")

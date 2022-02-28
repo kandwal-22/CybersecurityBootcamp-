@@ -44,14 +44,14 @@ Integrating an ELK server allows users to easily monitor the vulnerable VMs for 
    _Metricbeat takes the metrics and statistics that it collects and ships them to the output that you specify, such as Elasticsearch or Logstash._
    
 The configuration details of each machine may be found below.
-_Note: Use the [Markdown Table Generator](http://www.tablesgenerator.com/markdown_tables) to add/remove values from the table_.
+
 
 | Name             | Function | IP Address | Operating System |
 |------------------|----------|------------|------------------|
 | Red-Team-JumpBox | Gateway  | 10.0.0.4   | Linux            |
 | Web-1            | Server   | 10.0.0.5   | Linux            |
 | Web-2            | Server   | 10.0.0.6   | Linux            |
-| ELK-server       | Monitor  | 10.1.0.4   | Linux            |
+| ELK-server       | Kibana   | 10.1.0.4   | Linux            |
 
 ### Access Policies
 

@@ -84,6 +84,21 @@ Ansible was used to automate configuration of the ELK machine. No configuration 
    - There are multiple advantages, Ansible lets you quickly and easily deploy multiple applications throug a YAML playbook. -
    - You don't need to write custom code to automate your systems.
    - Ansible will also figure out how to get your systems to the state you want them to be in. 
+   
+We will configure an ELK server within virtual network. Specifically,
+ 
+- Deployed a new VM on our virtual network.
+- Created an Ansible play to install and configure an ELK instance.
+- Restricted access to the new server.
+
+
+After that we will create an Ansible play to install and configure an ELK instance.In this step, we have to:
+- Add our new VM to the Ansible hosts file.
+- Create a new Ansible playbook to use for our new ELK virtual machine.
+- From our Ansible container, add the new VM to Ansible's hosts file.
+   - RUN `nano /etc/ansible/hosts` and put our IP with `ansible_python_interpreter=/usr/bin/python3`
+
+![hosts file editing]()  
 
 The playbook implements the following tasks:
 

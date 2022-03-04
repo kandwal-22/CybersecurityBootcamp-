@@ -98,7 +98,7 @@ After that we will create an Ansible play to install and configure an ELK instan
 - From our Ansible container, add the new VM to Ansible's hosts file.
    - RUN `nano /etc/ansible/hosts` and put our IP with `ansible_python_interpreter=/usr/bin/python3`
 
-![hosts file editing]()  
+![hosts file editing](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/hosts.txt)  
 
 The playbook implements the following tasks:
 

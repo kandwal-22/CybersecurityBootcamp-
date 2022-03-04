@@ -324,19 +324,19 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 |--------------------------------------------------|-------------------------------------------------------|                         
 |`ssh-keygen`                                      |  create a ssh key for setup VM's                      |
 |`sudo cat .ssh/id_rsa.pub`                        |  to view the ssh public key                           |
-|`ssh azureuser@Red-Team-Jumpbox IP address`       |  to log into the Jump-Box-Provisioner                 |
+|`ssh azureuser@Red-Team-Jumpbox IP address`       |  to log into the Jump-Box                 |
 | `sudo docker container list -a`                  | list all docker containers                            |
-| `sudo docker start peaceful_blackburn`           | start docker container dremy_elbakyan                 |
+| `sudo docker start peaceful_blackburn`           | start docker container peaceful_blackburn                 |
 |`sudo docker ps -a`                               |  list all active/inactive containers                  |
-|`sudo docker attach peaceful_blackburn`           |  effectively sshing into the dremy_elbakyan container |
+|`sudo docker attach peaceful_blackburn`           |  effectively sshing into the peaceful_blackburn container |
 |`cd /etc/ansible`                                 | Change directory to the Ansible directory             |
 |`ls -laA`                                         | List all file in directory (including hidden)         |
 |`nano /etc/ansible/hosts`                         |  to edit the hosts file                               |
 |`nano /etc/ansible/ansible.cfg`                   |  to edit the ansible.cfg file                         |
 |`ansible-playbook [location][filename]`           |  to run the playbook                                  |
-|`ssh azureuser@Red-Team-Web-1 IP address`         |  to log into the Web-1 VM                             |
-|`ssh azureuser@Red-Team-Web-2 IP address`         |  to log into the Web-2 VM                             |
-|`ssh azureuser@Elk-server IP address`             |  to log into the ELKserver VM                         |
+|`ssh azureuser@Red-Team-Web-1 IP address`         |  to log into the Red-Team-Web-1 VM                             |
+|`ssh azureuser@Red-Team-Web-2 IP address`         |  to log into the Red-Team-Web-2 VM                             |
+|`ssh azureuser@Elk-server IP address`             |  to log into the ELK-server VM                         |
 |`exit`                                            | to exit out of docker containers/Jumpbox              |
 |`nano /etc/ansible/ansible.cfg`                   |  to edit the ansible.cfg file                         |
 |`nano /etc/ansible/hosts`                         |  to edit the hosts file                               |

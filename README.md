@@ -267,20 +267,8 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
 
 - Run the playbook using this command `ansible-playbook metricbeat-playbook.yml` and navigate to [Kibana](http://40.122.239.74:5601/app/kibana) > Logs : Add Metric data > Docker Metrics (DEB) > 5:Module Status > Check data_on Kibana to check that the installation worked as expected.  
     - [Metricbeat Module Kibana - Metricbeat Docker Overview ECS Dashboard](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/metricbeat-img.PNG "Kibana Dashboard with Metricbeat")
-     
- _Answer the following questions to fill in the blanks:_
-- _Which file is the playbook? Where do you copy it?_
-  - For Filebeat create **_[Filebeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")_**
-  - For Metricbeat create **_[Metricbeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-playbook.yml.txt "Metricbeat Playbook")_** 
-  -  _Where do you copy it?_- **_/etc/ansible/_**  
-- _Which file do you update to make Ansible run the playbook on a specific machine?_
-  - **_/etc/ansible/hosts file (IP of the Virtual Machines)._**  
-- _How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
-  - **_I have specified two separate groups in the etc/ansible/hosts file. One of the group will be webservers which has the IPs of the 2 VMs that I will install Filebeat to. The other group is named ELKserver which will have the IP of the VM I will install ELK to._**  
-- _Which URL do you navigate to in order to check that the ELK server is running?_
-  - **_http://40.122.239.74:5601//app/kibana_**
-
-Next, I want to verify that `filebeat` and `metricbeat` are actually collecting the data they are supposed to and that my deployment is fully functioning.
+   
+ Next, I want to verify that `filebeat` and `metricbeat` are actually collecting the data they are supposed to and that my deployment is fully functioning.
 To do so, I will generate a high amount of CPU usage on my web servers and verify that Kibana is picking up this activity.
 
 1. From my Jump Box, I start my Ansible container with the following command:
@@ -313,6 +301,20 @@ Next, view the Metrics page for that VM in Kibana and comparing 2 of web servers
 ![cpu stress test results](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Diagrams/Images/stress_test.PNG)
 
 
+     
+ _Answer the following questions to fill in the blanks:_
+- _Which file is the playbook? Where do you copy it?_
+  - For Filebeat create **_[Filebeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Filebeat-playbook.yml.txt "Filebeat Playbook")_**
+  - For Metricbeat create **_[Metricbeat Playbook](https://github.com/kandwal-22/ELK-Stack-Project1/blob/main/Ansible/Metricbeat-playbook.yml.txt "Metricbeat Playbook")_** 
+  -  _Where do you copy it?_- **_/etc/ansible/_**  
+- _Which file do you update to make Ansible run the playbook on a specific machine?_
+  - **_/etc/ansible/hosts file (IP of the Virtual Machines)._**  
+- _How do I specify which machine to install the ELK server on versus which to install Filebeat on?_
+  - **_I have specified two separate groups in the etc/ansible/hosts file. One of the group will be webservers which has the IPs of the 2 VMs that I will install Filebeat to. The other group is named ELKserver which will have the IP of the VM I will install ELK to._**  
+- _Which URL do you navigate to in order to check that the ELK server is running?_
+  - **_http://40.122.239.74:5601//app/kibana_**
+
+
 
 
 
@@ -324,17 +326,17 @@ _As a **Bonus**, provide the specific commands the user will need to run to down
 |`sudo cat .ssh/id_rsa.pub`                        |  to view the ssh public key                           |
 |`ssh azureuser@Red-Team-Jumpbox IP address`       |  to log into the Jump-Box-Provisioner                 |
 | `sudo docker container list -a`                  | list all docker containers                            |
-| `sudo docker start dremy_elbakyan`               | start docker container dremy_elbakyan                 |
+| `sudo docker start peaceful_blackburn`           | start docker container dremy_elbakyan                 |
 |`sudo docker ps -a`                               |  list all active/inactive containers                  |
-|`sudo docker attach dremy_elbakyan`               |  effectively sshing into the dremy_elbakyan container |
+|`sudo docker attach peaceful_blackburn`           |  effectively sshing into the dremy_elbakyan container |
 |`cd /etc/ansible`                                 | Change directory to the Ansible directory             |
 |`ls -laA`                                         | List all file in directory (including hidden)         |
 |`nano /etc/ansible/hosts`                         |  to edit the hosts file                               |
 |`nano /etc/ansible/ansible.cfg`                   |  to edit the ansible.cfg file                         |
 |`ansible-playbook [location][filename]`           |  to run the playbook                                  |
-|`ssh azureuser@Web-1 IP address`                   |  to log into the Web-1 VM                             |
-|`ssh azureuser@Web-2 IP address`                   |  to log into the Web-2 VM                             |
-|`ssh azureuser@ELKserver IP address`               |  to log into the ELKserver VM                         |
+|`ssh azureuser@Red-Team-Web-1 IP address`         |  to log into the Web-1 VM                             |
+|`ssh azureuser@Red-Team-Web-2 IP address`         |  to log into the Web-2 VM                             |
+|`ssh azureuser@Elk-server IP address`             |  to log into the ELKserver VM                         |
 |`exit`                                            | to exit out of docker containers/Jumpbox              |
 |`nano /etc/ansible/ansible.cfg`                   |  to edit the ansible.cfg file                         |
 |`nano /etc/ansible/hosts`                         |  to edit the hosts file                               |

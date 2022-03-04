@@ -264,6 +264,37 @@ RUN `nano filebeat-playbook.yml` to enable the filebeat service on boot by Fileb
 - _Which URL do you navigate to in order to check that the ELK server is running?_
   - **_http://40.122.239.74:5601//app/kibana_**
 
+Next, I want to verify that `filebeat` and `metricbeat` are actually collecting the data they are supposed to and that my deployment is fully functioning.
+To do so, I will generate a high amount of CPU usage on my web servers and verify that Kibana is picking up this activity.
+
+1. From my Jump Box, I start my Ansible container with the following command:
+```bash
+sudo docker start peaceful_blackburn && sudo docker attach peaceful_blackburn
+```
+
+2. Then, SSH from my Ansible container to Web-1.
+
+```bash
+ssh azureuser@10.0.0.5
+```
+
+3. Install the `stress` module with the following command:
+
+```bash
+sudo apt install stress
+```
+
+4. Run the service with the following command and let the stress test run for a few minutes:
+
+```bash
+sudo stress --cpu 1
+```
+
+   - _Note: The stress program will run until we quit with Ctrl+C._
+	
+Next, view the Metrics page for that VM in Kibana and comparing 2 of web servers to see the differences in CPU usage, confirmed that `metricbeat` is capturing the increase in CPU usage due to our stress command:
+
+![cpu stress test results]()
 
 
 
